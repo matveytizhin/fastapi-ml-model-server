@@ -1,0 +1,13 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  ml-server:
+    build: .
+    container_name: ml_model_server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/app/server
+      - ./saved_models:/app/saved_models
+    env_file:
+      - .env
